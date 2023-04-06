@@ -26,3 +26,4 @@ def deal_no_deal():
                                         green(21, "bold"), green(22, "bold"), green(23, "bold"), green(24, "bold"), green(25, "bold"), green(26, "bold")]
      
 
+yay
