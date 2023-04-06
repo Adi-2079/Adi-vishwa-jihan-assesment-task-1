@@ -19,10 +19,10 @@ def deal_no_deal():
     briefcases1 = briefcases
     offer = 0 
     remaining_briefcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
-     remaining_briefcases_coloured = [green(1, "bold"), green(2, "bold"), green(3, "bold"), green(4, "bold"), green(5, "bold"), 
-                                        green(6, "bold"), green(7, "bold"), green(8, "bold"), green(9, "bold"), green(10, "bold"), 
-                                        green(11, "bold"), green(12, "bold"), green(13, "bold"), green(14, "bold"), green(15, "bold"),
-                                        green(16, "bold"), green(17, "bold"), green(18, "bold"), green(19, "bold"), green(20, "bold"),
+    remaining_briefcases_coloured = [magenta(1, "bold"), magenta(2, "bold"), magenta(3, "bold"), magenta(4, "bold"), magenta(5, "bold"), 
+                                        cyan(6, "bright"), cyan(7, "bright"), cyan(8, "bright"), cyan(9, "bright"), cyan(10, "bright"), 
+                                        red(11, "bold"), red(12, "bold"), red(13, "bold"), red(14, "bold"), red(15, "bold"),
+                                        blue(16, "bold"), blue(17, "bold"), blue(18, "bold"), blue(19, "bold"), blue(20, "bold"),
                                         green(21, "bold"), green(22, "bold"), green(23, "bold"), green(24, "bold"), green(25, "bold"), green(26, "bold")]
      
 
