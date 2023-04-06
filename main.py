@@ -23,7 +23,7 @@ def deal_no_deal():
                                         cyan(6, "bright"), cyan(7, "bright"), cyan(8, "bright"), cyan(9, "bright"), cyan(10, "bright"), 
                                         red(11, "bold"), red(12, "bold"), red(13, "bold"), red(14, "bold"), red(15, "bold"),
                                         blue(16, "bold"), blue(17, "bold"), blue(18, "bold"), blue(19, "bold"), blue(20, "bold"),
-                                        green(21, "bold"), green(22, "bold"), green(23, "bold"), green(24, "bold"), green(25, "bold"), green(26, "bold")]
+                                        green(21, "bold"), green(22, "bold"), green(23, "bold"), red(24, "bold"), green(25, "bold"), green(26, "bold")]
      
 
 yay
