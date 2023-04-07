@@ -28,22 +28,22 @@ def deal_no_deal():
     briefcases1 = briefcases()
     offer = 0 
     remaining_briefcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
-    remaining_briefcases_coloured = [green(1, 'bold', 'underlined'), green(2, [ 'bold' , 'underlined' ]), green(3, 'bold', 'underlined'), green(4, 'bold', 'underlined'), green(5, 'bold', 'underlined'), 
-                                        green(6, 'bold', 'underlined'), green(7, 'bold', 'underlined'), green(8, 'bold', 'underlined'), green(9, 'bold', 'underlined'), green(10, 'bold', 'underlined'), 
-                                         green(11, 'bold', 'underlined'),  green(12, 'bold', 'underlined'),  green(13, 'bold', 'underlined'),  green(14, 'bold', 'underlined'),  green(15, 'bold', 'underlined'),
-                                         green(16, 'bold', 'underlined'),  green(17, 'bold', 'underlined'),  green(18, 'bold', 'underlined'),  green(19, 'bold', 'underlined'),  green(20, 'bold', 'underlined'),
-                                         green(21, 'bold', 'underlined'),  green(22, 'bold', 'underlined'),  green(23, 'bold', 'underlined'),  green(24, 'bold', 'underlined'),  green(25, 'bold', 'underlined'),  green(26, 'bold', 'underlined')]
+    remaining_briefcases_colougreen = green(1, ('bold')), green(2, ('bold')), green(3, ('bold'),), green(4, ('bold')), green(5, ('bold')), 
+    green(6, ('bold')), green(7, ('bold' )), green(8, ('bold')), green(9, ('bold')), green(10, ('bold')), 
+    green(11, ('bold')),  green(12, ('bold')),  green(13, ('bold')),  green(14, ('bold')),  green(15, ('bold')),
+    green(16, ('bold')),  green(17, ('bold')),  green(18, ('bold')), green(19, ('bold')),  green(20, ('bold')),
+    green(21, ('bold')),  green(22, ('bold')),  green(23, ('bold')),  green(24, ('bold')),  green(25, ('bold')),  green(26, ('bold'))
    
-    print(list_to_string(remaining_briefcases_coloured))
+    print(list_to_string(remaining_briefcases_colougreen))
     briefcase_eliminate = 6
     print(" Eliminate " + str(briefcase_eliminate) + " briefcases ")
     first_briefcases = int(input())
     print("You removed breifcase " + str(first_briefcases) + " which contained ", briefcases1.pop(str(first_briefcases)))
     if first_briefcases in briefcases1:
         briefcases1.remove(first_briefcases)
-    remaining_briefcases_coloured[first_briefcases - 1] = black(str(first_briefcases), "bold")
-    print(list_to_string(remaining_briefcases_coloured))
-     
+    remaining_briefcases_colougreen[briefcase_eliminate - 1] = black(str(first_briefcases), "bold")
+    print(list_to_string(remaining_briefcases_colougreen))
+
 deal_no_deal()
 
 
