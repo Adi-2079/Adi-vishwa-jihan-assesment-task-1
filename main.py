@@ -1,6 +1,7 @@
 from simple_colors import *
 import random
 import time
+import os
 
 def deal_or_no_deal_briefcases():
     global remaining_briefcases
@@ -9,7 +10,7 @@ def deal_or_no_deal_briefcases():
     for i in range(1,27):
         briefcases[str(i)] = amount.pop(amount.index(random.choice(amount)))
         remaining_briefcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
-    return deal_or_no_deal_briefcases
+    return briefcases
 
 def list_to_string(list):
     string = ""
@@ -29,6 +30,10 @@ def player_briefcase():
     if chosen_briefcase in remaining_briefcases:
         remaining_briefcases.remove(chosen_briefcase)
         print("You chose briefcase " + str(chosen_briefcase))
+    else: 
+        print("Briefcase not in list, please pick again")
+        chosen_briefcase = int(input("Briefcase: "))
+    
 player_briefcase()
 
 
@@ -46,23 +51,17 @@ def deal_no_deal():
     briefcases_eliminate = 6
    
     print("You are required to eliminate " + str(briefcases_eliminate) + " briefcases, please choose them from the list below")
+    
     print(list_to_string(remaining_briefcases_colorgreen))
-    
-    first_briefcase = int(input("Briefcase: "))
-    if first_briefcase in remaining_briefcases:
-        remaining_briefcases.remove(first_briefcase)
-        print("You removed briefcase " + str(first_briefcase)  " which contained $", briefcases.pop(str(first_briefcase)))
-    else:
-        print("Sorry, number is not in the list")
-    
 
-    print("You are now required to pick 5 more briefcases, please pick another from the new list below")
+    for i in range(0, briefcases_eliminate):
+         print("You are required to eliminate " + str(briefcases_eliminate) + " briefcases, please choose them from the list below")
     print(list_to_string(remaining_briefcases_colorgreen))
-    second_briefcase = int(input)
-    if second_briefcase in remaining_briefcases:
-        remaining_briefcases.remove(second_briefcase)
-    else:
-        print("Sorry, number is not in the list ")
+    briefcase_to_eliminate = int(input("Eliminated briefcase: "))
+    print("You removed briefcase " , briefcase_to_eliminate , " which contained $", briefcases.pop(str(briefcase_to_eliminate)))
+    first_briefcase = int(input("Briefcase: "))
+    remaining_briefcases.remove(first_briefcase)
+    remaining_briefcases_colorgreen[briefcases_eliminate - 1] = black(str(briefcase_to_eliminate), "bold")
 deal_no_deal()
 
 
