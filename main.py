@@ -58,7 +58,7 @@ def deal_no_deal():
          print("You are required to eliminate " + str(briefcases_eliminate) + " briefcases, please choose them from the list below")
     print(list_to_string(remaining_briefcases_colorgreen))
     briefcase_to_eliminate = int(input("Eliminated briefcase: "))
-    print("You removed briefcase " , briefcase_to_eliminate , " which contained $", briefcases.pop(str(briefcase_to_eliminate)))
+    print("You removed briefcase " , briefcase_to_eliminate , " which contained $", str(briefcases.pop(str(briefcase_to_eliminate))))
     first_briefcase = int(input("Briefcase: "))
     remaining_briefcases.remove(first_briefcase)
     remaining_briefcases_colorgreen[briefcases_eliminate - 1] = black(str(briefcase_to_eliminate), "bold")
