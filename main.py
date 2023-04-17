@@ -76,7 +76,6 @@ def deal_or_no_deal_2():
         print("You eliminated briefcase: " + chosen_briefcase + " which contained" + str(chosen_briefcase.pop(str(briefcase_to_eliminate))))
     else: 
         print("Unfortunately the briefcase chosen is not in the list")
-
 deal_or_no_deal_2()
    
 
