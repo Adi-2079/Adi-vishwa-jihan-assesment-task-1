@@ -1,7 +1,6 @@
 from simple_colors import *
 import random
-import time
-import os
+
 
 def deal_or_no_deal_briefcases():
     global remaining_briefcases
