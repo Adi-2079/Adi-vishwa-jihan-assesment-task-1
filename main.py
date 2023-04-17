@@ -1,6 +1,6 @@
 from simple_colors import *
 import random
-
+import time
 
 def deal_or_no_deal_briefcases():
     global remaining_briefcases
@@ -18,7 +18,8 @@ def list_to_string(list):
     return string
 
 def instructions():
-    print("This is the game deal or no deal. To begin you will pick one briefcase that will be yours. The game will progress through many rounds as you eliminate briefcases. You will either win the money in your briefcases or through an offer mmade by the bank.")
+    print("This is the game deal or no deal. To begin you will pick one briefcase that will be yours. The game will progress through many rounds as you eliminate briefcases.") 
+    print("You will either win the money in your briefcases or through an offer mmade by the bank.")
     print("Let's play!")
 instructions()
 
@@ -51,7 +52,7 @@ def deal_no_deal():
    
     print("You are required to eliminate " + str(briefcases_eliminate) + " briefcases, please choose them from the list below")
     
-    print(list_to_string(remaining_briefcases_colorgreen))
+    print(str(remaining_briefcases_colorgreen))
 
     for i in range(0, briefcases_eliminate):
          print("You are required to eliminate " + str(briefcases_eliminate) + " briefcases, please choose them from the list below")
@@ -61,9 +62,22 @@ def deal_no_deal():
     first_briefcase = int(input("Briefcase: "))
     remaining_briefcases.remove(first_briefcase)
     remaining_briefcases_colorgreen[briefcases_eliminate - 1] = black(str(briefcase_to_eliminate), "bold")
-deal_no_deal()
 
 
+def deal_or_no_deal_2():
+    remaining_briefcases = [1 , 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+    remaining_briefcases_colorgreen = green(1, ('bold')), green(2, ('bold')), green(3, ('bold'),), green(4, ('bold')), green(5, ('bold')), green(6, ('bold')), green(7, ('bold' )), green(8, ('bold')), green(9, ('bold')), green(10, ('bold')), green(11, ('bold')),  green(12, ('bold')),  green(13, ('bold')),  green(14, ('bold')),  green(15, ('bold')), green(16, ('bold')),  green(17, ('bold')),  green(18, ('bold')), green(19, ('bold')),  green(20, ('bold')), green(21, ('bold')),  green(22, ('bold')),  green(23, ('bold')),  green(24, ('bold')),  green(25, ('bold')),  green(26, ('bold'))
+    while str(remaining_briefcases) > str(19):
+        briefcase_to_eliminate = 6
+    print("You are required to eliminate 6 briefcases which will be removed from the list please pick them from the remaining briefcases:")
+    print(str(remaining_briefcases_colorgreen))
+    chosen_briefcase = int(input("Chosen Briefcase:\n"))
+    if chosen_briefcase in remaining_briefcases:
+        print("You eliminated briefcase: " + chosen_briefcase + " which contained" + str(chosen_briefcase.pop(str(briefcase_to_eliminate))))
+    else: 
+        print("Unfortunately the briefcase chosen is not in the list")
+        
+deal_or_no_deal_2()
    
 
 
