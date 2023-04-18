@@ -82,12 +82,12 @@ def deal_or_no_deal():
    
         if acceptance == "D":
                     print("You have won $ ", offer, "the game has ended!")
-                    time.sleep(4.5)
+                    time.sleep(3)
                     os.system("clear")
         elif acceptance == "N":
                     print("You have declined $ ", offer, "let us continue to the next round.")
                     print("The first round has ended. You will now pick 5 briefcases to be discarded from the list.")
-                    time.sleep(5.5)
+                    time.sleep(4.5).5
                     os.system("clear")
     
     while len(remaining_briefcases) >14:
@@ -103,7 +103,7 @@ def deal_or_no_deal():
             if str(briefcase_to_eliminate) in briefcases:
                  briefcase_content = briefcases[str(briefcase_to_eliminate)]
                  print("You removed briefcase", briefcase_to_eliminate, "Which contained $ ", briefcase_content)
-                 time.sleep(4.5)
+                 time.sleep(4)
                  os.system("clear")
             else:
                 print("Briefcase ", briefcase_to_eliminate, "has already been removed.")
@@ -422,7 +422,7 @@ def deal_or_no_deal():
     acceptance = input("Selection: ")
     if acceptance == "D":
                     print("You have won $ ", offer, "the game has ended!")
-                    time.sleep(6)
+                    time.sleep(3.5)
                     os.system("clear")
     elif acceptance == "N":
                     print("You have declined $ ", offer, "let us continue to the next round.")
