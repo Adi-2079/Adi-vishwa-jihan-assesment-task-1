@@ -1,4 +1,4 @@
-from simple_colors import *
+from simple_colors import * 
 import simple_colors
 import random
 import time
@@ -82,7 +82,7 @@ else:
 
 if remaining_briefcases == 19:
             print("The bank will now offer you a deal. Type D for a deal and N for no deal.")
-deal_or_no_deal_2()
+
 
    
 
