@@ -17,18 +17,18 @@ def list_to_string(lst):
     return ' '.join(map(str, lst))
 
 def instructions():
-    print("This is the game deal or no deal. Every briefcase has a random value from 1 cent to 1 million dollars! To begin, you will pick one briefcase which will be kept safe throughout the game.")
+    print("This is the game deal or no deal. Every one of the 26 briefcases has a random value from 1 cent to 1 million dollars! To begin, you will pick one briefcase which will be kept safe throughout the game.")
     print("There will be multiple rounds of this game. After every round, the bank will offer you a deal")
     print("If you accept that deal, you win the money. If not you keep playing and eventually either accept an offer, or win the money in either the first briefcase you chose or the last briefcase left.")
     print("Throughout the game, if you feel you have eliminated too many briefcases with high values, just accept the offer and walk away with bundles of cash!")
     print("Let's play!")
-    time.sleep(2)
+    time.sleep(35)
     os.system("clear")
 instructions()
 
 def player_briefcase(remaining_briefcases):
     global chosen_briefcase
-    print("You must pick a briefcase and this briefcases will be kept safe throughout the game. Remember the number of your briefcase as you will need it later. ")
+    print("You must pick a briefcase from 1-26 and this briefcases will be kept safe throughout the game. Remember the number of your briefcase as you will need it later. ")
     chosen_briefcase = int(input("Chosen briefcase: "))
     while chosen_briefcase not in range(1, 27):
         print("Sorry. This number is not valid. Please pick again")
@@ -39,7 +39,7 @@ def player_briefcase(remaining_briefcases):
 
 
 def get_random_offer():
-    return round(random.uniform(10000, 250000), 2)
+    return round(random.uniform(10, 120000), 2)
 
 
 
@@ -456,17 +456,17 @@ def deal_or_no_deal(): #round one
                 time.sleep(5.5)
                 break
     if decision == "N":
-     while len(remaining_briefcases) >0: # round 10
-            chosen_briefcase = None
-            chosen_briefcase, remaining_briefcases = player_briefcase(remaining_briefcases)
+     if len(remaining_briefcases) >0: # round 10
+            remaining_briefcases.append(chosen_briefcase)
             briefcases_left = list_to_string(remaining_briefcases)
             
-            print("There is one briefcase left in the list. You must pick between your original briefcase and the last briefcase left in the list.")
+            print(" Your original briefcase has been added to the list. You must pick between your original briefcase and the other briefcase left in the list.")
             print(green(briefcases_left, ("bold")))
-            print("Type the number of the original briefcase to choose the original briefcase, and the number in the list to choose the remaining briefcase.")
+            print("Type the number of the original briefcase to choose the original briefcase, or the number in the list to choose the remaining briefcase.")
             
             briefcase_won = int(input("Briefcase won:\n "))
             if briefcase_won == chosen_briefcase:
+                remaining_briefcases.remove(briefcase_won)
                 print("You have won...")
                 time.sleep(1.5)
                 print("...")
@@ -477,7 +477,11 @@ def deal_or_no_deal(): #round one
                 time.sleep(1.5)
                 briefcase_content = briefcases[str(briefcase_won)]
                 print("You just won...... $ ", briefcase_content)
+                time.sleep(10)
+                os.system("clear")
             elif briefcase_won in remaining_briefcases:
+                remaining_briefcases.remove(briefcase_won)
+
                 print("You have won...")
                 time.sleep(1.5)
                 print("...")
@@ -488,9 +492,11 @@ def deal_or_no_deal(): #round one
                 time.sleep(1.5)
                 briefcase_content = briefcases[str(briefcase_won)]
                 print("You just won...... $ ", briefcase_content)
+                time.sleep(10)
+                os.system("clear")
             else:
                    print("Sorry you have chosen the wrong briefcase please pick again.")
-                   chosen_briefcase = int(input("Briefcase won:" ))
+                   briefcase_won = int(input("Briefcase won:" ))
             
 deal_or_no_deal()
 
