@@ -1,6 +1,6 @@
-from simple_colors import *
+from simple_colours import *
 import random
-import time
+import time 
 import os
 
 def deal_or_no_deal_briefcases():
@@ -22,7 +22,7 @@ def instructions():
     print("If you accept that deal, you win the money. If not you keep playing and eventually either accept an offer, or win the money in either the first briefcase you chose or the last briefcase left.")
     print("Throughout the game, if you feel you have eliminated too many briefcases with high values, just accept the offer and walk away with bundles of cash!")
     print("Let's play!")
-    time.sleep(35)
+   time.sleep(35)      
     os.system("clear")
 instructions()
 
