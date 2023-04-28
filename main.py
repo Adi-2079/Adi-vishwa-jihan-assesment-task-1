@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 
 from simple_colors import *
+=======
+from colorama import Fore, Back, Style
+print(Fore.RED + 'some red text')
+print(Back.GREEN + 'and with a green background')
+print(Style.DIM + 'and in dim text')
+print(Style.RESET_ALL)
+print('back to normal now')
+
+>>>>>>> 510528e7ecfe8c527425457f91436876ded4f50f
 import random
 import time
 import os
@@ -510,13 +520,11 @@ def deal_or_no_deal(): #round one
           
 deal_or_no_deal()
 
+<<<<<<< HEAD
 
  
-
-
-    
-
-
+=======
+>>>>>>> 510528e7ecfe8c527425457f91436876ded4f50f
 
 
 
@@ -528,6 +536,12 @@ deal_or_no_deal()
 
 
 
-   
+
+
+
+
+
+
+
 
 
