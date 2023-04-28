@@ -1,4 +1,9 @@
-from simple_colours import *
+from colorama import Fore, Back, Style
+print(Fore.RED + 'some red text')
+print(Back.GREEN + 'and with a green background')
+print(Style.DIM + 'and in dim text')
+print(Style.RESET_ALL)
+print('back to normal now')
 import random
 import time 
 import os
@@ -500,10 +505,6 @@ def deal_or_no_deal(): #round one
             
 deal_or_no_deal()
 
- 
-
-
-    
 
 
 
@@ -517,6 +518,10 @@ deal_or_no_deal()
 
 
 
-   
+
+
+
+
+
 
 
