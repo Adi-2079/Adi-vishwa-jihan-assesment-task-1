@@ -1,4 +1,4 @@
-from simple_colours import *
+from simple_colors import *
 import random
 import time 
 import os
