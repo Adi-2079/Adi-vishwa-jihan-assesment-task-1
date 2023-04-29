@@ -15,7 +15,7 @@ def deal_or_no_deal_briefcases():
    return briefcases, remaining_briefcases
   
 def list_to_string(lst):
-   return ' '.join(map(str, lst)
+   return ' '.join(map(str, lst))
 
 
 def instructions():
@@ -504,14 +504,22 @@ def deal_or_no_deal(): #round one
           
 deal_or_no_deal()
 
-<<<<<<< HEAD
+tutorial_mode=input("Type T to play tutorial mode:")
 
- 
-=======
->>>>>>> 510528e7ecfe8c527425457f91436876ded4f50f
-
-
-
+if tutorial_mode=='T':
+   print("There are 26 briefcases to choose from in the game.Each briefcase holds different cash amount from $0.01 to $1 million.")
+   print("At the start, contestant is given 6 briefcases to choose from")
+   print("After choosing all 6 briefcases, banker offers a deal. Deal is of high value if the brioefcases chosen are of low-medium value")
+   print(" If contestant accepts the offer, game is overand contestant gets the money offered by the banker else game proceeds to round 2 which is 5 briefcases for the contestant to open")
+   print("Game continues in multiple rounds until contestant accepts offer or ")
+   print("Throughout the game, if you feel you have eliminated too many briefcases with high values, just accept the offer and walk away with bundles of cash!")
+   print("Let's play!")
+   time.sleep(35)
+   os.system("clear")
+instructions()
+     
+     
+     
 
 
 
