@@ -1,4 +1,4 @@
-from simple_colors import *
+from simple_colors import * #This statement imports simple colors
 import random
 import time
 import os
