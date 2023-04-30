@@ -57,7 +57,7 @@ def deal_or_no_deal(): #round one
            print("Chose the briefcases to eliminate from the following list")
            print(green(briefcases_left, ("bold"))) #This statement prints the remaining briefcases in green and bold
            briefcase_to_eliminate = int(input("Eliminated briefcase:\n "))
-           if briefcase_to_eliminate not in remaining_briefcases:
+           if briefcase_to_eliminate not in remaining_briefcases: #This statement prints that the user has selected an invalid briefcase
                print("Sorry. Briefcase has already been chosen. Please pick again.")
                time.sleep(6) #This statement displays the message for six seconds
                os.system("clear") #This statement clears the writing after the time has finished 
