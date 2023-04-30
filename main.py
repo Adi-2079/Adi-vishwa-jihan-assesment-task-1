@@ -5,7 +5,7 @@ import os
 
 
 def deal_or_no_deal_briefcases(): 
-   global briefcases #This statement globlazies the briefcases
+   global briefcases #This statement globlazies the briefcase
    global remaining_briefcases #This statement globalizes the remaining breifcases
    briefcases = {} #This statement turns the briefcases into a dictionary
    amount = [0.1, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000] #This statement creates the amount to be put in the briefcases
