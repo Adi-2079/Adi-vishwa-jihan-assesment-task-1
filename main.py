@@ -554,6 +554,18 @@ for player_name in players:
      chosen_cases.append(chosen_case)
      briefcases.remove(chosen_case)
      print(f"{player_name}, your chosen briefcase is: {chosen_case} ")
+
+    num_round = 6
+for round_num in range(num_rounds):
+     print(f"\n{player_name} , its your turn")
+     chosen_briefcase = int(input(" Which briefcase did you choose ? "))
+     briefcases.remove(chosen_briefcase)
+     winning_amounts = winning_amounts.pop(random.randrange(len(winning_amounts)))
+     print(f"\You have won $(winning_amount)!")
+     if chosen_briefcase == chosen_cases[player_num]:
+          print(f"\n{player_name}, you have won $[prize_amount] and your orginial briefcase is worth ${chosen_briefcase}!")
+          return
+     
      
           
 
