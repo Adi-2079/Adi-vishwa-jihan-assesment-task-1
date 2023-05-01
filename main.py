@@ -518,11 +518,9 @@ if tutorial_mode=='T':
    os.system("clear")
 instructions()
      
-     
-     
+multiplayer_mode=input("Type M to play multiplayer mode")
 
-
-
+if multiplayer_mode=='M':
 
 
 
