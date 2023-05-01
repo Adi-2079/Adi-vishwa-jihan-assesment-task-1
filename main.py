@@ -522,6 +522,42 @@ multiplayer_mode=input("Type M to play multiplayer mode")
 
 if multiplayer_mode=='M':
 
+import random
+
+briefcases = list(range(1, 26))
+winning_amounts = [briefcases[str(i)] = amount.pop(amount.index(random.choice(amount)))]
+chosen_cases = []
+players = []
+
+def print_board():
+     print(" These are the remaining briefcases: ")
+     for briefcase in briefcases:
+          if briefcase not in chosen_cases:
+               print(briefcase, end=' ')
+print("\n")
+
+def offer():
+     total_winning_amount = sum(winning_amounts)
+     average_winning_amount = total_winning_amount / len(briefcases)
+     offer_amount = round(average_winning_amount * 0.5, 2)
+     return offer_amount
+
+def play_game():
+     num_players = int(input( "How many players? "))
+
+     for i in range(num_players):
+          player_name = input(f"What is the player {i+1}'s name? ")
+          players.append(player_name)
+
+for player_name in players:
+     chosen_case = random.choice(briefcases)
+     chosen_cases.append(chosen_case)
+     briefcases.remove(chosen_case)
+     print(f"{player_name}, your chosen briefcase is: {chosen_case} ")
+     
+          
+
+               
 
 
 
