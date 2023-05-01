@@ -19,14 +19,15 @@ if multiplayer_mode=='M':
 
 
     amount = [0.1, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000]
-    briefcases = list(range(1, 27))
-winning_amounts = [str(briefcases)[str(i)]] = amount.pop(amount.index(random.choice(amount)))
+    for i in range (1,27):
+     winning_amounts = [str(briefcases)[(i)]] = amount.pop(amount.index(random.choice(amount)))
 chosen_cases = []
 players = []
 
 def print_board():
-     print(" These are the remaining briefcases: ")
-     for briefcase in briefcases:
+    global briefcase
+    print(" These are the remaining briefcases: ")
+    for briefcase in briefcases:
           if briefcase not in chosen_cases:
                print(briefcase, end=' ')
 print("\n")
@@ -38,9 +39,10 @@ def offer():
      return offer_amount
 
 def play_game():
-     num_players = int(input( "How many players? "))
+    global player_name
+num_players = int(input( "How many players? "))
 
-     for i in range(num_players):
+for i in range(num_players):
           player_name = input(f"What is the player {i+1}'s name? ")
           players.append(player_name)
 
@@ -51,6 +53,7 @@ for player_name in players:
      print(f"{player_name}, your chosen briefcase is: {chosen_case} ")
 
 num_rounds = 6
+
 global round_num
 for round_num in range(num_rounds):
      print(f"\n{player_name} , its your turn")
