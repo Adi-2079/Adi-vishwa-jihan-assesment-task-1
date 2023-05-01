@@ -3,7 +3,6 @@ import random
 import time
 import os
 
-
 def deal_or_no_deal_briefcases(): 
    global briefcases #This statement globlazies the briefcase
    global remaining_briefcases #This statement globalizes the remaining breifcases
@@ -13,12 +12,75 @@ def deal_or_no_deal_briefcases():
        briefcases[str(i)] = amount.pop(amount.index(random.choice(amount))) #This statement randomozies the amounts in each briefcase
        remaining_briefcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
    return briefcases, remaining_briefcases
+
+multiplayer_mode=input("Type M to play multiplayer mode and N to play single player ")
+
+if multiplayer_mode=='M':
+
+
+    amount = [0.1, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000]
+    briefcases = list(range(1, 27))
+winning_amounts = [str(briefcases)[str(i)]] = amount.pop(amount.index(random.choice(amount)))
+chosen_cases = []
+players = []
+
+def print_board():
+     print(" These are the remaining briefcases: ")
+     for briefcase in briefcases:
+          if briefcase not in chosen_cases:
+               print(briefcase, end=' ')
+print("\n")
+
+def offer():
+     total_winning_amount = sum(winning_amounts)
+     average_winning_amount = total_winning_amount / len(briefcases)
+     offer_amount = round(average_winning_amount * 0.5, 2)
+     return offer_amount
+
+def play_game():
+     num_players = int(input( "How many players? "))
+
+     for i in range(num_players):
+          player_name = input(f"What is the player {i+1}'s name? ")
+          players.append(player_name)
+
+for player_name in players:
+     chosen_case = random.choice(briefcases)
+     chosen_cases.append(chosen_case)
+     briefcases.remove(chosen_case)
+     print(f"{player_name}, your chosen briefcase is: {chosen_case} ")
+
+num_rounds = 6
+global round_num
+for round_num in range(num_rounds):
+     print(f"\n{player_name} , its your turn")
+     chosen_briefcase = int(input(" Which briefcase did you choose ? "))
+     briefcases.remove(chosen_briefcase)
+     winning_amounts = winning_amounts.pop(random.randrange(len(winning_amounts)))
+     print(f"\You have won $(winning_amount)!")
+     if chosen_briefcase == chosen_cases[player_name]:
+        print(f"\n{player_name}, you have won $[prize_amount] and your orginial briefcase is worth ${chosen_briefcase}!")  
+
+if round_num == num_rounds -1:
+          print("\n\nFinal Round! ")
+          offer_amount = offer()
+          for player_num, player in enumerate(players):
+               print(f"\n{player_name}, it's your turn! ")
+               print_board()
+               deal_or_no_deal = input("You have been offered ${offer_amount}. Deal or no deal? ")
+               if deal_or_no_deal.lower() == "deal":
+                    print(f"\nCongratulations , {player_name}! You have won ${offer_amount}!")
+               elif deal_or_no_deal.lower () == "no deal":
+                continue
+play_game()
+if multiplayer_mode == "N":
+
   
-def list_to_string(lst):
+ def list_to_string(lst):
    return ' '.join(map(str, lst)) #This statement returns the remaining briefcases after the user eliminates a briefcase
 
 
-def instructions():
+ def instructions():
    print("This is the game deal or no deal. Every one of the 26 briefcases has a random value from 1 cent to 1 million dollars! To begin, you will pick one briefcase which will be kept safe throughout the game.")
    print("There will be multiple rounds of this game. After every round, the bank will offer you a deal")
    print("If you accept that deal, you win the money. If not you keep playing and eventually either accept an offer, or win the money in either the first briefcase you chose or the last briefcase left.")
@@ -26,10 +88,19 @@ def instructions():
    print("Let's play!")
    time.sleep(35)
    os.system("clear")
-instructions()
+ instructions()
+ def deal_or_no_deal_briefcases(): 
+   global briefcases #This statement globlazies the briefcase
+   global remaining_briefcases #This statement globalizes the remaining breifcases
+   briefcases = {} #This statement turns the briefcases into a dictionary
+   amount = [0.1, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000] #This statement creates the amount to be put in the briefcases
+   for i in range (1,27):
+       briefcases[str(i)] = amount.pop(amount.index(random.choice(amount))) #This statement randomozies the amounts in each briefcase
+       remaining_briefcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+   return briefcases, remaining_briefcases
 
 
-def player_briefcase(remaining_briefcases):
+ def player_briefcase(remaining_briefcases):
    global chosen_briefcase #This statement globalizes the chosen briefcase
    print("You must pick a briefcase from 1-26 and this briefcases will be kept safe throughout the game. Remember the number of your briefcase as you will need it later. ")
    chosen_briefcase = int(input("Chosen briefcase: "))
@@ -43,10 +114,10 @@ def player_briefcase(remaining_briefcases):
 
 
 
-def get_random_offer():
+ def get_random_offer():
    return round(random.uniform(10, 120000), 2) #This statement returns an offer from $10 to $120,000
 
-def deal_or_no_deal(): #round one
+ def deal_or_no_deal(): #round one
   
    briefcases, remaining_briefcases = deal_or_no_deal_briefcases()
    player_briefcase_num, remaining_briefcases = player_briefcase(remaining_briefcases)
@@ -518,69 +589,7 @@ if tutorial_mode=='T':
    os.system("clear")
 instructions()
      
-multiplayer_mode=input("Type M to play multiplayer mode")
 
-if multiplayer_mode=='M':
-
-import random
-
-briefcases = list(range(1, 26))
-winning_amounts = [briefcases[str(i)] = amount.pop(amount.index(random.choice(amount)))]
-chosen_cases = []
-players = []
-
-def print_board():
-     print(" These are the remaining briefcases: ")
-     for briefcase in briefcases:
-          if briefcase not in chosen_cases:
-               print(briefcase, end=' ')
-print("\n")
-
-def offer():
-     total_winning_amount = sum(winning_amounts)
-     average_winning_amount = total_winning_amount / len(briefcases)
-     offer_amount = round(average_winning_amount * 0.5, 2)
-     return offer_amount
-
-def play_game():
-     num_players = int(input( "How many players? "))
-
-     for i in range(num_players):
-          player_name = input(f"What is the player {i+1}'s name? ")
-          players.append(player_name)
-
-for player_name in players:
-     chosen_case = random.choice(briefcases)
-     chosen_cases.append(chosen_case)
-     briefcases.remove(chosen_case)
-     print(f"{player_name}, your chosen briefcase is: {chosen_case} ")
-
-    num_rounds = 6
-for round_num in range(num_rounds):
-     print(f"\n{player_name} , its your turn")
-     chosen_briefcase = int(input(" Which briefcase did you choose ? "))
-     briefcases.remove(chosen_briefcase)
-     winning_amounts = winning_amounts.pop(random.randrange(len(winning_amounts)))
-     print(f"\You have won $(winning_amount)!")
-     if chosen_briefcase == chosen_cases[player_num]:
-          print(f"\n{player_name}, you have won $[prize_amount] and your orginial briefcase is worth ${chosen_briefcase}!")
-        return
-     
-if round_num == num_rounds -1:
-          print("\n\nFinal Round! ")
-          offer_amount = offer()
-          for player_num, player in enumerate(players):
-               print(f"\n{player_name}, it's your turn! ")
-               print_board()
-               deal_or_no_deal = input("You have been offered ${offer_amount}. Deal or no deal? ")
-               if deal_or_no_deal.lower() == "deal":
-                    print(f"\nCongratulations , {player_name}! You have won ${offer_amount}!")
-                    return
-          elif deal_or_no_deal.lower () == "no deal":
-continue
-
-
-play_game()
 
      
      
