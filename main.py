@@ -555,7 +555,7 @@ for player_name in players:
      briefcases.remove(chosen_case)
      print(f"{player_name}, your chosen briefcase is: {chosen_case} ")
 
-    num_round = 6
+    num_rounds = 6
 for round_num in range(num_rounds):
      print(f"\n{player_name} , its your turn")
      chosen_briefcase = int(input(" Which briefcase did you choose ? "))
@@ -564,7 +564,24 @@ for round_num in range(num_rounds):
      print(f"\You have won $(winning_amount)!")
      if chosen_briefcase == chosen_cases[player_num]:
           print(f"\n{player_name}, you have won $[prize_amount] and your orginial briefcase is worth ${chosen_briefcase}!")
-          return
+        return
+     
+if round_num == num_rounds -1:
+          print("\n\nFinal Round! ")
+          offer_amount = offer()
+          for player_num, player in enumerate(players):
+               print(f"\n{player_name}, it's your turn! ")
+               print_board()
+               deal_or_no_deal = input("You have been offered ${offer_amount}. Deal or no deal? ")
+               if deal_or_no_deal.lower() == "deal":
+                    print(f"\nCongratulations , {player_name}! You have won ${offer_amount}!")
+                    return
+          elif deal_or_no_deal.lower () == "no deal":
+continue
+
+
+play_game()
+
      
      
           
