@@ -1,15 +1,23 @@
+<<<<<<< HEAD
 from  simple_colors import *
+=======
+
+from simple_colors import *
+>>>>>>> f6bd492c3e920e7a5c8db7e59be34c6c753af4ea
 import random
 import time
 import os
 
-def deal_or_no_deal_briefcases(): 
    global briefcases #This statement globlazies the briefcase
    global remaining_briefcases #This statement globalizes the remaining breifcases
    briefcases = {} #This statement turns the briefcases into a dictionary
    amount = [0.1, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000] #This statement creates the amount to be put in the briefcases
+   global briefcases
+   global remaining_briefcases
+   briefcases = {}
+   amount = [0.1, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000]
    for i in range (1,27):
-       briefcases[str(i)] = amount.pop(amount.index(random.choice(amount))) #This statement randomozies the amounts in each briefcase
+       briefcases[str(i)] = amount.pop(amount.index(random.choice(amount)))
        remaining_briefcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
    return briefcases, remaining_briefcases
 
@@ -78,72 +86,68 @@ play_game()
 if multiplayer_mode == "N":
 
   
- def list_to_string(lst):
-   return ' '.join(map(str, lst)) #This statement returns the remaining briefcases after the user eliminates a briefcase
+def list_to_string(lst):
+   return ' '.join(map(str, lst))
 
 
- def instructions():
+def instructions():
    print("This is the game deal or no deal. Every one of the 26 briefcases has a random value from 1 cent to 1 million dollars! To begin, you will pick one briefcase which will be kept safe throughout the game.")
    print("There will be multiple rounds of this game. After every round, the bank will offer you a deal")
    print("If you accept that deal, you win the money. If not you keep playing and eventually either accept an offer, or win the money in either the first briefcase you chose or the last briefcase left.")
    print("Throughout the game, if you feel you have eliminated too many briefcases with high values, just accept the offer and walk away with bundles of cash!")
    print("Let's play!")
    time.sleep(35)
-   os.system("clear")
- instructions()
- def deal_or_no_deal_briefcases(): 
-   global briefcases #This statement globlazies the briefcase
-   global remaining_briefcases #This statement globalizes the remaining breifcases
-   briefcases = {} #This statement turns the briefcases into a dictionary
-   amount = [0.1, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000] #This statement creates the amount to be put in the briefcases
-   for i in range (1,27):
-       briefcases[str(i)] = amount.pop(amount.index(random.choice(amount))) #This statement randomozies the amounts in each briefcase
-       remaining_briefcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
-   return briefcases, remaining_briefcases
+   os.system("cls")
+instructions()
 
 
- def player_briefcase(remaining_briefcases):
-   global chosen_briefcase #This statement globalizes the chosen briefcase
+def player_briefcase(remaining_briefcases):
+   global chosen_briefcase
    print("You must pick a briefcase from 1-26 and this briefcases will be kept safe throughout the game. Remember the number of your briefcase as you will need it later. ")
    chosen_briefcase = int(input("Chosen briefcase: "))
-   while chosen_briefcase not in range(1, 27): #This statement creates a loop
+   while chosen_briefcase not in range(1, 27):
        print("Sorry. This number is not valid. Please pick again")
        chosen_briefcase = int(input("Chosen briefcase: "))
-   remaining_briefcases.remove(chosen_briefcase) #This statement removes the chosen briefcase from remaining briefcases
-   print("You chose briefcase " + str(chosen_briefcase)) #This statement shows the briefcase the user eliminated
+   remaining_briefcases.remove(chosen_briefcase)
+   print("You chose briefcase " + str(chosen_briefcase))
    return chosen_briefcase, remaining_briefcases
 
 
 
 
- def get_random_offer():
-   return round(random.uniform(10, 120000), 2) #This statement returns an offer from $10 to $120,000
+def get_random_offer():
+   return round(random.uniform(10, 120000), 2)
 
- def deal_or_no_deal(): #round one
+
+
+
+
+
+def deal_or_no_deal(): #round one
   
    briefcases, remaining_briefcases = deal_or_no_deal_briefcases()
    player_briefcase_num, remaining_briefcases = player_briefcase(remaining_briefcases)
    number_of_briefcases_to_eliminate = 6
-   while len(remaining_briefcases) >19: #This makes the code run while there are more than 19 briefcases
+   while len(remaining_briefcases) >19:
            briefcases_left = list_to_string(remaining_briefcases)
           
            print("Chose the briefcases to eliminate from the following list")
-           print(green(briefcases_left, ("bold"))) #This statement prints the remaining briefcases in green and bold
+           print(green(briefcases_left, ("bold")))
            briefcase_to_eliminate = int(input("Eliminated briefcase:\n "))
-           if briefcase_to_eliminate not in remaining_briefcases: #This statement prints that the user has selected an invalid briefcase
+           if briefcase_to_eliminate not in remaining_briefcases:
                print("Sorry. Briefcase has already been chosen. Please pick again.")
-               time.sleep(6) #This statement displays the message for six seconds
-               os.system("clear") #This statement clears the writing after the time has finished 
+               time.sleep(6)
+               os.system("cls")
                continue
            remaining_briefcases.remove(briefcase_to_eliminate)
            if str(briefcase_to_eliminate) in briefcases:
-                briefcase_content = briefcases[str(briefcase_to_eliminate)] #This statement creates the values in each briefcase
+                briefcase_content = briefcases[str(briefcase_to_eliminate)]
                 print("You removed briefcase", briefcase_to_eliminate, "which contained $ ", briefcase_content)
                 time.sleep(4)
-                os.system("clear")
+                os.system("cls")
            else:
                print("Briefcase ", briefcase_to_eliminate, "has already been removed.")
-   while True: #This statement puts the code in a loop
+   while True:
          offer = get_random_offer()
          print("The bank is thinking of an offer")
          time.sleep(1.5)
@@ -153,26 +157,26 @@ if multiplayer_mode == "N":
          time.sleep(1.5)
          print("...")
          time.sleep(1.5)
-         print("The bank's offer is: ", offer) #This statement prints the offer from the bank
+         print("The bank's offer is: ", offer)
          print("Please type D to accept this deal and N to decline this deal and keep playing")
          time.sleep(4)
-         os.system("clear")
+         os.system("cls")
         
-         decision = input("Selection: ") #The following code takes the users input to make a decision
+         decision = input("Selection: ")
          if decision == "D":
-                   os.system("clear")
+                   os.system("cls")
                    print("You have won $ ", offer, "the game has ended!")
                    return get_random_offer
          elif decision == "N":
                    print("You have declined $ ", offer, "let us continue to the next round.")
                    print("The first round has ended. In the second round you will pick 5 briefcases to be eliminated.")
                    time.sleep(8)
-                   os.system("clear")
+                   os.system("cls")
                    break
       
       
    if decision == "N":
-           while len(remaining_briefcases) >14: #round 2 
+           while len(remaining_briefcases) >14: #round 2
                briefcases_left = list_to_string(remaining_briefcases)
           
                print("Chose the briefcases to eliminate from the following list")
@@ -186,7 +190,7 @@ if multiplayer_mode == "N":
                    briefcase_content = briefcases[str(briefcase_to_eliminate)]
                    print("You removed briefcase", briefcase_to_eliminate, "which contained $ ", briefcase_content)
                    time.sleep(4)
-                   os.system("clear")
+                   os.system("cls")
                else:
                    print("Briefcase ", briefcase_to_eliminate, "has already been removed.")
    while True:
@@ -202,11 +206,11 @@ if multiplayer_mode == "N":
           print("The bank's offer is: ", offer)
           print("Please type D to accept this deal and N to decline this deal and keep playing")
           time.sleep(4)
-          os.system("clear")
+          os.system("cls")
       
           decision = input("Selection: ")
           if decision == "D":
-                   os.system("clear")
+                   os.system("cls")
                    print("You have won $ ", offer, "the game has ended!")
                    return get_random_offer
           elif decision== "N":
@@ -225,14 +229,14 @@ if multiplayer_mode == "N":
            if briefcase_to_eliminate not in remaining_briefcases:
                print("Sorry. Briefcase has already been chosen. Please pick again.")
                time.sleep(4.5)
-               os.system("clear")
+               os.system("cls")
                continue
            remaining_briefcases.remove(briefcase_to_eliminate)
            if str(briefcase_to_eliminate) in briefcases:
                 briefcase_content = briefcases[str(briefcase_to_eliminate)]
                 print("You removed briefcase", briefcase_to_eliminate, "which contained $ ", briefcase_content)
                 time.sleep(3.5)
-                os.system("clear")
+                os.system("cls")
            else:
                print("Briefcase ", briefcase_to_eliminate, "has already been removed.")
    while True:
@@ -248,11 +252,11 @@ if multiplayer_mode == "N":
          print("The bank's offer is: ", offer)
          print("Please type D to accept this deal and N to decline this deal and keep playing")
          time.sleep(4)
-         os.system("clear")
+         os.system("cls")
       
          decision = input("Selection: ")
          if decision == "D":
-                   os.system("clear")
+                   os.system("cls")
                    print("You have won $ ", offer, "the game has ended!")
                    return get_random_offer
          elif decision== "N":
@@ -270,14 +274,14 @@ if multiplayer_mode == "N":
            if briefcase_to_eliminate not in remaining_briefcases:
                print("Sorry. Briefcase has already been chosen. Please pick again.")
                time.sleep(4.5)
-               os.system("clear")
+               os.system("cls")
                continue
            remaining_briefcases.remove(briefcase_to_eliminate)
            if str(briefcase_to_eliminate) in briefcases:
                 briefcase_content = briefcases[str(briefcase_to_eliminate)]
                 print("You removed briefcase", briefcase_to_eliminate, "which contained $ ", briefcase_content)
                 time.sleep(3.5)
-                os.system("clear")
+                os.system("cls")
            else:
                print("Briefcase ", briefcase_to_eliminate, "has already been removed.")
    while True:
@@ -293,11 +297,11 @@ if multiplayer_mode == "N":
          print("The bank's offer is: ", offer)
          print("Please type D to accept this deal and N to decline this deal and keep playing")
          time.sleep(4)
-         os.system("clear")
+         os.system("cls")
       
          decision = input("Selection: ")
          if decision == "D":
-                   os.system("clear")
+                   os.system("cls")
                    print("You have won $ ", offer, "the game has ended!")
                    return get_random_offer
          elif decision== "N":
@@ -315,14 +319,14 @@ if multiplayer_mode == "N":
            if briefcase_to_eliminate not in remaining_briefcases:
                print("Sorry. Briefcase has already been chosen. Please pick again.")
                time.sleep(3.5)
-               os.system("clear")
+               os.system("cls")
                continue
            remaining_briefcases.remove(briefcase_to_eliminate)
            if str(briefcase_to_eliminate) in briefcases:
                 briefcase_content = briefcases[str(briefcase_to_eliminate)]
                 print("You removed briefcase", briefcase_to_eliminate, "which contained $ ", briefcase_content)
                 time.sleep(4)
-                os.system("clear")
+                os.system("cls")
            else:
                print("Briefcase ", briefcase_to_eliminate, "has already been removed.")
    while True:
@@ -338,11 +342,11 @@ if multiplayer_mode == "N":
          print("The bank's offer is: ", offer)
          print("Please type D to accept this deal and N to decline this deal and keep playing")
          time.sleep(4)
-         os.system("clear")
+         os.system("cls")
       
          decision = input("Selection: ")
          if decision == "D":
-                   os.system("clear")
+                   os.system("cls")
                    print("You have won $ ", offer, "the game has ended!")
                    return get_random_offer
          elif decision== "N":
@@ -360,14 +364,14 @@ if multiplayer_mode == "N":
            if briefcase_to_eliminate not in remaining_briefcases:
                print("Sorry. Briefcase has already been chosen. Please pick again.")
                time.sleep(6)
-               os.system("clear")
+               os.system("cls")
                continue
            remaining_briefcases.remove(briefcase_to_eliminate)
            if str(briefcase_to_eliminate) in briefcases:
                 briefcase_content = briefcases[str(briefcase_to_eliminate)]
                 print("You removed briefcase", briefcase_to_eliminate, "which contained $ ", briefcase_content)
                 time.sleep(6)
-                os.system("clear")
+                os.system("cls")
            else:
                print("Briefcase ", briefcase_to_eliminate, "has already been removed.")
    while True:
@@ -383,11 +387,11 @@ if multiplayer_mode == "N":
          print("The bank's offer is: ", offer)
          print("Please type D to accept this deal and N to decline this deal and keep playing")
          time.sleep(4)
-         os.system("clear")
+         os.system("cls")
       
          decision = input("Selection: ")
          if decision == "D":
-                   os.system("clear")
+                   os.system("cls")
                    print("You have won $ ", offer, "the game has ended!")
                    return get_random_offer
          elif decision== "N":
@@ -405,14 +409,14 @@ if multiplayer_mode == "N":
            if briefcase_to_eliminate not in remaining_briefcases:
                print("Sorry. Briefcase has already been chosen. Please pick again.")
                time.sleep(6)
-               os.system("clear")
+               os.system("cls")
                continue
            remaining_briefcases.remove(briefcase_to_eliminate)
            if str(briefcase_to_eliminate) in briefcases:
                 briefcase_content = briefcases[str(briefcase_to_eliminate)]
                 print("You removed briefcase", briefcase_to_eliminate, "which contained $ ", briefcase_content)
                 time.sleep(4)
-                os.system("clear")
+                os.system("cls")
            else:
                print("Briefcase ", briefcase_to_eliminate, "has already been removed.")
    while True:
@@ -428,11 +432,11 @@ if multiplayer_mode == "N":
          print("The bank's offer is: ", offer)
          print("Please type D to accept this deal and N to decline this deal and keep playing")
          time.sleep(4)
-         os.system("clear")
+         os.system("cls")
       
          decision = input("Selection: ")
          if decision == "D":
-                   os.system("clear")
+                   os.system("cls")
                    print("You have won $ ", offer, "the game has ended!")
                    return get_random_offer
          elif decision== "N":
@@ -450,14 +454,14 @@ if multiplayer_mode == "N":
            if briefcase_to_eliminate not in remaining_briefcases:
                print("Sorry. Briefcase has already been chosen. Please pick again.")
                time.sleep(6)
-               os.system("clear")
+               os.system("cls")
                continue
            remaining_briefcases.remove(briefcase_to_eliminate)
            if str(briefcase_to_eliminate) in briefcases:
                 briefcase_content = briefcases[str(briefcase_to_eliminate)]
                 print("You removed briefcase", briefcase_to_eliminate, "which contained $ ", briefcase_content)
                 time.sleep(4)
-                os.system("clear")
+                os.system("cls")
            else:
                print("Briefcase ", briefcase_to_eliminate, "has already been removed.")
        while True:
@@ -473,11 +477,11 @@ if multiplayer_mode == "N":
          print("The bank's offer is: ", offer)
          print("Please type D to accept this deal and N to decline this deal and keep playing")
          time.sleep(4)
-         os.system("clear")
+         os.system("cls")
       
          decision = input("Selection: ")
          if decision == "D":
-                   os.system("clear")
+                   os.system("cls")
                    print("You have won $ ", offer, "the game has ended!")
                    return get_random_offer
          elif decision== "N":
@@ -496,14 +500,14 @@ if multiplayer_mode == "N":
            if briefcase_to_eliminate not in remaining_briefcases:
                print("Sorry. Briefcase has already been chosen. Please pick again.")
                time.sleep(4.5)
-               os.system("clear")
+               os.system("cls")
                continue
            remaining_briefcases.remove(briefcase_to_eliminate)
            if str(briefcase_to_eliminate) in briefcases:
                 briefcase_content = briefcases[str(briefcase_to_eliminate)]
                 print("You removed briefcase", briefcase_to_eliminate, "which contained $ ", briefcase_content)
                 time.sleep(6)
-                os.system("clear")
+                os.system("cls")
            else:
                print("Briefcase ", briefcase_to_eliminate, "has already been removed.")
    while True:
@@ -519,11 +523,11 @@ if multiplayer_mode == "N":
          print("The bank's offer is: ", offer)
          print("Please type D to accept this deal and N to decline this deal and keep playing")
          time.sleep(4)
-         os.system("clear")
+         os.system("cls")
       
          decision = input("Selection: ")
          if decision == "D":
-                   os.system("clear")
+                   os.system("cls")
                    print("You have won $ ", offer, "the game has ended!")
                    return get_random_offer
          elif decision== "N":
@@ -532,17 +536,17 @@ if multiplayer_mode == "N":
                time.sleep(5.5)
                break
    if decision == "N":
-    if len(remaining_briefcases) >0: # round 10, This statement runs the code if there is more than 0 briefcases left
-           remaining_briefcases.append(chosen_briefcase) #This statement adds users orginial briefcase to the list of briefcases
+    if len(remaining_briefcases) >0: # round 10
+           remaining_briefcases.append(chosen_briefcase)
            briefcases_left = list_to_string(remaining_briefcases)
           
            print(" Your original briefcase has been added to the list. You must pick between your original briefcase and the other briefcase left in the list.")
-           print(green(briefcases_left, ("bold"))) #This statement prints the briefcases left after the orginial briefcase has been added back to the list
+           print(green(briefcases_left, ("bold")))
            print("Type the number of the original briefcase to choose the original briefcase, or the number in the list to choose the remaining briefcase.")
           
-           briefcase_won = int(input("Briefcase won:\n ")) #This statement allows the user to type which briefcase they want to win
+           briefcase_won = int(input("Briefcase won:\n "))
            if briefcase_won == chosen_briefcase:
-               remaining_briefcases.remove(briefcase_won) #This command removes the briefcase 1 from the list 
+               remaining_briefcases.remove(briefcase_won)
                print("You have won...")
                time.sleep(1.5)
                print("...")
@@ -551,12 +555,12 @@ if multiplayer_mode == "N":
                time.sleep(1.5)
                print("...")
                time.sleep(1.5)
-               briefcase_content = briefcases[str(briefcase_won)] #This statement defines the amount of money in the chosen briefcase
-               print("You just won...... $ ", briefcase_content) #This statement prints how much money was in the chosen briefcase
+               briefcase_content = briefcases[str(briefcase_won)]
+               print("You just won...... $ ", briefcase_content)
                time.sleep(10)
-               os.system("clear")
+               os.system("cls")
            elif briefcase_won in remaining_briefcases:
-               remaining_briefcases.remove(briefcase_won) #This command removes the chosen briefcase from remaining briefcases
+               remaining_briefcases.remove(briefcase_won)
 
 
                print("You have won...")
@@ -567,37 +571,25 @@ if multiplayer_mode == "N":
                time.sleep(1.5)
                print("...")
                time.sleep(1.5)
-               briefcase_content = briefcases[str(briefcase_won)] #This statement defines the amount of money is the briefcase that is won
-               print("You just won...... $ ", briefcase_content) #This statement displays the amounf of money in the briefcases that is won
+               briefcase_content = briefcases[str(briefcase_won)]
+               print("You just won...... $ ", briefcase_content)
                time.sleep(10)
-               os.system("clear")
-           else: #This statement allows the user to pick a briefcase again if their orginial choice was not in the remaining briefcases
+               os.system("cls")
+           else:
                   print("Sorry you have chosen the wrong briefcase please pick again.")
                   briefcase_won = int(input("Briefcase won:" ))
           
-deal_or_no_deal() #This statement runs all of the code
-
-tutorial_mode=input("Type T to play tutorial mode:")
-
-if tutorial_mode=='T':
-   print("There are 26 briefcases to choose from in the game.Each briefcase holds different cash amount from $0.01 to $1 million.")
-   print("At the start, contestant is given 6 briefcases to choose from")
-   print("After choosing all 6 briefcases, banker offers a deal. Deal is of high value if the brioefcases chosen are of low-medium value")
-   print(" If contestant accepts the offer, game is overand contestant gets the money offered by the banker else game proceeds to round 2 which is 5 briefcases for the contestant to open")
-   print("Game continues in multiple rounds until contestant accepts offer or ")
-   print("Throughout the game, if you feel you have eliminated too many briefcases with high values, just accept the offer and walk away with bundles of cash!")
-   print("Let's play!")
-   time.sleep(35)
-   os.system("clear")
-instructions()
-     
+deal_or_no_deal()
 
 
-     
-     
-          
+ 
 
-               
+
+
+
+
+
+
 
 
 
