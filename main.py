@@ -1,4 +1,4 @@
-from colorama import *
+from  simple_colors import *
 import random
 import time
 import os
@@ -16,7 +16,6 @@ def deal_or_no_deal_briefcases():
 multiplayer_mode=input("Type M to play multiplayer mode and N to play single player ")
 
 if multiplayer_mode=='M':
-
 
     amount = [0.1, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000]
     for i in range (1,27):
@@ -47,7 +46,7 @@ for i in range(num_players):
           players.append(player_name)
 
 for player_name in players:
-     chosen_case = random.choice(briefcases)
+     chosen_case = random.shuffle(amount)
      chosen_cases.append(chosen_case)
      briefcases.remove(chosen_case)
      print(f"{player_name}, your chosen briefcase is: {chosen_case} ")
