@@ -33,6 +33,7 @@ def instructions():
 instructions()
 
 
+
 def player_briefcase(remaining_briefcases):
    global chosen_briefcase
    print("You must pick a briefcase from 1-26 and this briefcases will be kept safe throughout the game. Remember the number of your briefcase as you will need it later. ")
