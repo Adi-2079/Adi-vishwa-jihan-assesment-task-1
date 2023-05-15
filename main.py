@@ -1,9 +1,9 @@
 
-from  simple_colors import *
+from simple_colors import *
 import random
 import time
 import os
-from multi import *
+import multi
 
 
 
@@ -24,8 +24,7 @@ def instructions():
    print("Type M to play multiplayer and S to play single player")
    choice = input("Selected mode: ")
    if choice.lower == "m":
-    print("multi")
-    deal_or_no_deal_multiplayer()
+        multi.play_game()
    elif choice.lower == "s":
     print(deal_or_no_deal)
    time.sleep(35)
