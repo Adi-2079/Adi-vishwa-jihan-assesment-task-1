@@ -1,4 +1,5 @@
 # Define the login function
+import main
 def login():
     # Get the username and password from the user
     username = input("Enter your username: ")
@@ -10,7 +11,8 @@ def login():
             user, passw = line.split()
             if username == user and password == passw:
                 print("Login successful!")
-                return
+                main.instructions()
+                return "l"
 
     # Display an error message
     print("Invalid username or password")
@@ -47,13 +49,12 @@ while True:
 
     # If the user chooses to login
     if choice.upper() == "L":
-        login()
-
+        if login() == "l":
+            main.deal_or_no_deal()
     # If the user chooses to register
     if choice.upper() == "R":
         register()
 
     # If the user chooses to quit
     if choice.upper()== "Q":
-        
         break
