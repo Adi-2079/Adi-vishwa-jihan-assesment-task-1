@@ -6,7 +6,6 @@ import os
 import multi
 
 
-
 def deal_or_no_deal():
     pass
 
@@ -24,13 +23,11 @@ def instructions():
    print("Type M to play multiplayer and S to play single player")
    choice = input("Selected mode: ")
    if choice.lower == "m":
-        multi.play_game()
+    multi.player()
    elif choice.lower == "s":
     print(deal_or_no_deal)
    time.sleep(35)
    os.system("cls")
-instructions()
-
 
 
 def player_briefcase(remaining_briefcases):
