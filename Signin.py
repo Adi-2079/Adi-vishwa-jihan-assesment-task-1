@@ -21,8 +21,10 @@ def register():
     username = input("Enter your username: ")
     password = input("Enter your password: ")
 
-    # Check if the username is already taken
-    with open("Cusers.txt", "r") as f:
+    # Check if
+    # t", "r") as f:
+    with open("users.txt", "r") as f:
+        print(f)
         for line in f:
             user, passw = line.split()
             if username == user:
@@ -30,7 +32,7 @@ def register():
                 return
 
     # Write the username and password to the text file
-    with open("users.txt", "a") as f:
+    with open("users.txt", "w") as f:
         f.write(f"{username} {password}\n")
 
     print("Registration successful!")
@@ -53,4 +55,5 @@ while True:
 
     # If the user chooses to quit
     if choice.upper()== "Q":
+        
         break
