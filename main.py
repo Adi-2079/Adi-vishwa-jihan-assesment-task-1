@@ -12,6 +12,17 @@ def deal_or_no_deal():
 
 def list_to_string(lst):
    return ' '.join(map(str, lst))
+   
+def deal_or_no_deal_briefcases():
+   global briefcases
+   global remaining_briefcases
+   briefcases = {}
+   amount = [0.1, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000]
+   for i in range (1,27):
+       briefcases[str(i)] = amount.pop(amount.index(random.choice(amount)))
+       remaining_briefcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+   return briefcases, remaining_briefcases
+
 
 
 def instructions():
@@ -23,11 +34,12 @@ def instructions():
    print("Type M to play multiplayer and S to play single player")
    choice = input("Selected mode: ")
    if choice.lower == "m":
-    multi.player()
+    multi.play_game()
    elif choice.lower == "s":
     print(deal_or_no_deal)
    time.sleep(35)
    os.system("cls")
+instructions()
 
 
 def player_briefcase(remaining_briefcases):
