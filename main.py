@@ -1,10 +1,18 @@
 
-from simple_colors import *
+#from simple_colors import *
 import random
 import time
 import os
 import multi
 
+import os
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
+import mixer 
+
+mixer.init()
+audio_file = os.path.dirname(__file__) + "\\background.wav"
+mixer.music.load(audio_file)
+mixer.music.play(loops=-1)
 
 def deal_or_no_deal():
     pass
