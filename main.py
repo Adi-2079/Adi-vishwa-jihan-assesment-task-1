@@ -1,22 +1,17 @@
-
-#from simple_colors import *
+import audioop
+from simple_colors import *
 import random
 import time
 import os
 import multi
-
-import os
-os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
-import mixer 
-
-mixer.init()
-audio_file = os.path.dirname(__file__) + "\\background.wav"
-mixer.music.load(audio_file)
-mixer.music.play(loops=-1)
+import pygame
 
 def deal_or_no_deal():
     pass
 
+pygame.mixer.init()
+pygame.mixer.music.load(audioop.wav)
+pygame.mixer.music.play(audioop.wav)
 
 def list_to_string(lst):
    return ' '.join(map(str, lst))

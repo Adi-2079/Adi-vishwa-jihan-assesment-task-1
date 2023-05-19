@@ -1,5 +1,8 @@
+from main import deal_or_no_deal
+
+
 def high_score(winning_amt):
-    game=deal_or_no_deal()
+    game= deal_or_no_deal()
     earnings={}
     with open("C:\\Users\\high_score.txt", "r") as file:
         for line in file:
