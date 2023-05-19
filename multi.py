@@ -62,4 +62,6 @@ def play_game():
                     return
                 elif deal_or_no_deal.lower() == "no deal":
                     continue
-                       
+                
+# Start the game
+play_game()
