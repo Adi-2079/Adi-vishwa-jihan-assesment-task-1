@@ -46,7 +46,7 @@ def play_game():
             chosen_briefcase = int(input("Which briefcase do you choose? "))
             briefcases.remove(chosen_briefcase)
             prize_amount = prize_amounts.pop(random.randrange(len(prize_amounts)))
-            print(f"You have won ${prize_amount}!")
+            print(f"You have eliminated ${prize_amount}!")
             if chosen_briefcase == chosen_cases[player_num]:
                 print(f"\n{player_name}, you have won ${prize_amount} and your original briefcase is worth ${chosen_briefcase}!")
                 return
