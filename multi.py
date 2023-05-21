@@ -1,5 +1,30 @@
 
-print("""
+
+
+import random
+
+# Set up the initial game variables
+briefcases = list(range(1, 27))
+prize_amounts = [0.01, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000]
+chosen_cases = []
+players = []
+
+# Define the functions for the game
+def print_board():
+    print("Here are the remaining briefcases:")
+    for briefcase in briefcases:
+        if briefcase not in chosen_cases:
+            print(briefcase, end=' ')
+    print("\n")
+    
+def offer():
+    total_prize_amount = sum(prize_amounts)
+    average_prize_amount = total_prize_amount / len(briefcases)
+    offer_amount = round(average_prize_amount * 0.5, 2)
+    return offer_amount
+    
+def play_game():
+    print("""
                                                                   
 @@@@@@@   @@@@@@@@   @@@@@@   @@@           @@@@@@   @@@@@@@   
 @@@@@@@@  @@@@@@@@  @@@@@@@@  @@@          @@@@@@@@  @@@@@@@@  
@@ -48,31 +73,6 @@ print("""
    ::     :: ::::  ::   :::     :::     ::   ::::: ::   :::: ::   :: ::::  
    :     : :: ::    :   : :      :      :     : :  :   :: :  :   : :: ::   
                                                                                                      """)
-
-
-import random
-
-# Set up the initial game variables
-briefcases = list(range(1, 27))
-prize_amounts = [0.01, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000]
-chosen_cases = []
-players = []
-
-# Define the functions for the game
-def print_board():
-    print("Here are the remaining briefcases:")
-    for briefcase in briefcases:
-        if briefcase not in chosen_cases:
-            print(briefcase, end=' ')
-    print("\n")
-    
-def offer():
-    total_prize_amount = sum(prize_amounts)
-    average_prize_amount = total_prize_amount / len(briefcases)
-    offer_amount = round(average_prize_amount * 0.5, 2)
-    return offer_amount
-    
-def play_game():
     # Ask for the number of players
     num_players = int(input("How many players? "))
     
@@ -127,7 +127,8 @@ def play_game():
         print("\n\nBetter luck next time for the following players:")
         for player_name in remaining_players:
             print(player_name)
+play_game()
 
 # Start the game
-play_game()
+
 
