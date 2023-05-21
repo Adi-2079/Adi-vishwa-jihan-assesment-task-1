@@ -16,6 +16,7 @@ def login():
 
     # Display an error message
     print("Invalid username or password")
+    return username
 
 # Define the register function
 def register():
