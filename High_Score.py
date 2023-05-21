@@ -1,10 +1,11 @@
 import main
+import login
 
 
 
 def high_score(winning_amt):
-    game= deal_or_no_deal()
-    name=login()
+    game = main.deal_or_no_deal()
+    name= login.login()
     earnings={}
     with open("C:\\Users\\high_score.txt", "r") as file:
         for line in file:
@@ -32,7 +33,7 @@ def high_score(winning_amt):
 def main():
     tutorial_mode= input("Type 'T' to play tutorial mode: ")
     if tutorial_mode=='T':
-        high_scores=high_score(deal_or_no_deal)              
+        high_scores=high_score(main.deal_or_no_deal())              
         return high_scores
 
 

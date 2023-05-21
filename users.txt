@@ -1,4 +1,2 @@
-mam 123
-aditya 1
-groom 1
-sam 1
+adi 1
+ha 1
