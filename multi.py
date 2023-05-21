@@ -124,7 +124,7 @@ def play_game():
         print("\n\nBetter luck next time for the following players:")
         for player_name in remaining_players:
             print(player_name)
-play_game()
+
 
 # Start the game
 
