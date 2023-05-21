@@ -1,8 +1,10 @@
-from main import deal_or_no_deal
+import main
+
 
 
 def high_score(winning_amt):
     game= deal_or_no_deal()
+    name=login()
     earnings={}
     with open("C:\\Users\\high_score.txt", "r") as file:
         for line in file:
@@ -16,7 +18,7 @@ def high_score(winning_amt):
     for name, earning in sorted(earnings.items(), key=lambda x:x[1]):
         print(f"{name}: {earning}")
 
-    name = input("Enter your name: \n")
+    #name = input("Enter your name: \n")
     print(f"Your High Score from your current game {game}\n")
    
 
@@ -25,11 +27,7 @@ def high_score(winning_amt):
     with open("C:\\Users\\high_score.txt", "w") as file:
         for name, earning in earnings.items():
             file.write(f"{name}:{earning}\n")
-
-
-       
-       
-
+            
 # Start the game
 def main():
     tutorial_mode= input("Type 'T' to play tutorial mode: ")
