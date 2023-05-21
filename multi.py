@@ -1,6 +1,3 @@
-
-
-
 import random
 
 # Set up the initial game variables
