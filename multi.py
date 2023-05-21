@@ -43,38 +43,38 @@ def play_game():
         print_board()
         for player_num, player_name in enumerate(players):
             if player_name not in chosen_cases:  # Only play if player is still in the game
-             print(f"\n{player_name}, it's your turn!")
-            chosen_briefcase = int(input("Which briefcase do you choose? "))
-            briefcases.remove(chosen_briefcase)
-            prize_amount = prize_amounts.pop(random.randrange(len(prize_amounts)))
-            print(f"You have eliminated ${prize_amount}!")
-            if chosen_briefcase == chosen_cases[player_num]:
-                print(f"\n{player_name}, you have won ${prize_amount} and your original briefcase is worth ${chosen_briefcase}!")
-                chosen_cases.remove(chosen_briefcase)
-            
-           # Final Round
-            print("\n\nFinal Round!")
-            offer_amount = offer()
-            for player_num, player_name in enumerate(players):
-                if player_name not in chosen_cases: # Only play if player is still in the game
-                 print(f"\n{player_name}, it's your turn!")
-                print_board()
-                deal_or_no_deal = input(f"You have been offered ${offer_amount}. Deal or no deal? ")
-                if deal_or_no_deal.lower() == "deal":
-                    print(f"\nCongratulations, {player_name}! You have won ${offer_amount}!")
-                else:
-                    print(f"\n{player_name}, you chose not to take the deal. Let's see what's in your orginial briefcase...")
-                    prize_amount = chosen_case[player_num]
-                    print(f"Your orginial briefcase was worth ${prize_amount}.")
-
-            # Determine the final results
-            remaining_players = [player for player in players if player in chosen_cases]
-            if len(remaining_players) == 0:
-                print("\n\nAll players have won!")
+                print(f"\n{player_name}, it's your turn!")
+                chosen_briefcase = int(input("Which briefcase do you choose? "))
+                briefcases.remove(chosen_briefcase)
+                prize_amount = prize_amounts.pop(random.randrange(len(prize_amounts)))
+                print(f"You have eliminated ${prize_amount}!")
+                if chosen_briefcase == chosen_cases[player_num]:
+                    print(f"\n{player_name}, you have won ${prize_amount} and your original briefcase is worth ${chosen_briefcase}!")
+                    chosen_cases.remove(chosen_briefcase)
+    
+    # Final round
+    print("\n\nFinal Round!")
+    offer_amount = offer()
+    for player_num, player_name in enumerate(players):
+        if player_name not in chosen_cases:  # Only play if player is still in the game
+            print(f"\n{player_name}, it's your turn!")
+            print_board()
+            deal_or_no_deal = input(f"You have been offered ${offer_amount}. Deal or no deal? ")
+            if deal_or_no_deal.lower() == "deal":
+                print(f"\nCongratulations, {player_name}! You have won ${offer_amount}!")
             else:
-                print("\n\nBetter luck next time for the following players:")
-                for player_name in remaining_players:
-                    print(player_name)
-                
+                print(f"\n{player_name}, you chose not to take the deal. Let's see what's in your briefcase...")
+                prize_amount = chosen_cases[player_num]
+                print(f"Your original briefcase was worth ${prize_amount}.")
+    
+    # Determine the final results
+    remaining_players = [player for player in players if player in chosen_cases]
+    if len(remaining_players) == 0:
+        print("\n\nAll players have won!")
+    else:
+        print("\n\nBetter luck next time for the following players:")
+        for player_name in remaining_players:
+            print(player_name)
+
 # Start the game
 play_game()
